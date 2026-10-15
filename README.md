@@ -83,3 +83,12 @@ GitHub Pages: https://player48021.github.io/kr1-html-css-shop/
 - состояния `:hover`, `:focus-visible`, `:disabled`;
 - визуальная подсветка ошибочных полей через `aria-invalid`;
 - структурированный файл `css/style.css`.
+
+## Использование Flexbox и Grid
+
+В проекте используются:
+
+- Flexbox для основного меню;
+- Flexbox для внутренней структуры карточек товаров;
+- CSS Grid для сетки карточек;
+- CSS Grid для страницы каталога с фильтрами и списком товаров.
