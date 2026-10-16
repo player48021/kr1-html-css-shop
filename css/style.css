@@ -76,31 +76,15 @@ a:focus-visible {
   outline-offset: 3px;
 }
 
-/* Кнопки-ссылки не должны терять белый текст при hover */
-a.button,
-a.button:hover,
-a.button:focus,
-a.button:focus-visible,
-a.button:active {
-  color: var(--color-white);
-}
-
 /* --- Блок button --- */
 .button {
   display: inline-block;
   padding: var(--space-sm) var(--space-md);
-  color: var(--color-white);
-  background-color: var(--color-primary);
-  text-decoration: none;
   border: none;
   border-radius: var(--radius-sm);
   font: inherit;
+  text-decoration: none;
   cursor: pointer;
-}
-
-.button:hover {
-  background-color: var(--color-primary-dark);
-  color: var(--color-white);
 }
 
 .button:focus-visible {
@@ -108,14 +92,15 @@ a.button:active {
   outline-offset: 3px;
 }
 
-.button:disabled {
+.button:disabled,
+.button--disabled {
   opacity: 0.6;
   cursor: not-allowed;
 }
 
 .button--primary {
-  background-color: var(--color-primary);
   color: var(--color-white);
+  background-color: var(--color-primary);
 }
 
 .button--primary:hover {
@@ -123,14 +108,23 @@ a.button:active {
 }
 
 .button--secondary {
-  background-color: var(--color-surface);
-  color: var(--color-text);
-  border: 1px solid var(--color-border);
+  color: var(--color-primary);
+  background-color: transparent;
+  border: 1px solid var(--color-primary);
 }
 
 .button--secondary:hover {
-  background-color: var(--color-border);
-  color: var(--color-text);
+  color: var(--color-white);
+  background-color: var(--color-primary);
+}
+
+/* Ссылка-кнопка не должна терять белый текст при hover */
+a.button--primary,
+a.button--primary:hover,
+a.button--primary:focus,
+a.button--primary:focus-visible,
+a.button--primary:active {
+  color: var(--color-white);
 }
 
 /* Подсветка цели якоря */
@@ -148,13 +142,13 @@ a.button:active {
   position: sticky;
   top: 0;
   z-index: 100;
-  padding: var(--space-lg);
   background-color: var(--color-surface);
 }
 
 .site-header__inner {
   max-width: var(--container-width);
   margin: 0 auto;
+  padding: var(--space-lg);
 }
 
 .site-header__logo {
@@ -174,10 +168,6 @@ a.button:active {
   list-style: none;
 }
 
-.site-nav__item {
-  /* задел под будущую стилизацию */
-}
-
 .site-nav__link {
   display: inline-block;
   padding: var(--space-sm) var(--space-md);
@@ -189,6 +179,11 @@ a.button:active {
 .site-nav__link:hover {
   color: var(--color-white);
   background-color: var(--color-primary);
+}
+
+.site-nav__link:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
 }
 
 .site-nav__link--active {
@@ -241,6 +236,7 @@ a.button:active {
 
 /* --- Карточка товара --- */
 .product-card {
+  position: relative; /* контейнер для абсолютного бейджа */
   display: flex;
   flex-direction: column;
   gap: var(--space-sm);
@@ -252,6 +248,36 @@ a.button:active {
 
 .product-card:hover {
   border-color: var(--color-primary);
+}
+
+.product-card--featured {
+  border-color: var(--color-primary);
+}
+
+.product-card--discount {
+  border-color: var(--color-danger);
+}
+
+.product-card--discount .product-card__price {
+  color: var(--color-danger);
+}
+
+.product-card__badge {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  padding: 4px 8px;
+  color: var(--color-white);
+  background-color: var(--color-danger);
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  z-index: 1;
+}
+
+.product-card--featured .product-card__badge {
+  background-color: var(--color-primary);
 }
 
 .product-card__title {
@@ -425,4 +451,120 @@ a.button:active {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
   font: inherit;
+}
+
+/* ===================================
+   7. Позиционирование: фикс-кнопка «Наверх»
+   =================================== */
+.to-top {
+  position: fixed;
+  right: var(--space-lg);
+  bottom: var(--space-lg);
+  z-index: 150;
+  display: inline-block;
+  padding: var(--space-sm) var(--space-md);
+  color: var(--color-white);
+  background-color: var(--color-primary);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.to-top:hover {
+  color: var(--color-white);
+  background-color: var(--color-primary-dark);
+}
+
+.to-top:focus-visible {
+  outline: 2px solid var(--color-white);
+  outline-offset: 3px;
+}
+
+/* ===================================
+   8. Таблица характеристик
+   =================================== */
+.product-table {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto var(--space-xl);
+  border-collapse: collapse;
+  background-color: var(--color-bg);
+}
+
+.product-table caption {
+  padding: var(--space-sm) 0;
+  font-weight: 700;
+  text-align: left;
+  color: var(--color-text);
+}
+
+.product-table th,
+.product-table td {
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid var(--color-border);
+  text-align: left;
+}
+
+.product-table thead th {
+  background-color: var(--color-surface);
+}
+
+.product-table tbody tr:nth-child(even) {
+  background-color: var(--color-surface);
+}
+
+/* ===================================
+   9. Детальная страница товара
+   =================================== */
+.product-detail {
+  max-width: var(--container-width);
+  margin: 0 auto var(--space-xl);
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) 1.2fr;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+.product-detail__image {
+  width: 100%;
+  height: auto;
+  max-height: 420px;
+  object-fit: contain;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg);
+}
+
+.product-detail__title {
+  margin-top: 0;
+}
+
+.product-detail__price {
+  margin: var(--space-md) 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.product-detail__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
+/* ===================================
+   10. Страница заявки
+   =================================== */
+.order-page {
+  max-width: var(--container-width);
+  margin: 0 auto var(--space-xl);
+}
+
+.order-page__form {
+  max-width: 640px;
+  padding: var(--space-lg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-bg);
 }
