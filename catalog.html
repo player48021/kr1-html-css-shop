@@ -17,10 +17,11 @@
         <ul class="site-nav__list">
           <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
           <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="catalog.html">Каталог</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="product.html">Карточка товара</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="order.html">Заявка</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="index.html#advantages">Преимущества</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="index.html#popular">Популярные товары</a></li>
-          <li class="site-nav__item"><a class="site-nav__link" href="index.html#contacts">Обратная связь</a></li>
         </ul>
       </nav>
     </div>
@@ -94,27 +95,29 @@
 
             <p class="product-card__description">Зарядное устройство</p>
             <p class="product-card__price">Цена: 1000 руб.</p>
-            <a class="button button--primary product-card__button" href="index.html#popular">Подробнее</a>
+            <a class="button button--primary product-card__button" href="product.html">Подробнее</a>
           </article>
 
-          <article class="product-card">
+          <article class="product-card product-card--discount">
+            <span class="product-card__badge">Скидка</span>
             <h3 class="product-card__title">Товар 2</h3>
 
             <img src="images/product-2.jpg" alt="Товар 2" class="product-card__image">
 
             <p class="product-card__description">Точилка для ножей и ножниц</p>
             <p class="product-card__price">Цена: 1500 руб.</p>
-            <a class="button button--primary product-card__button" href="index.html#popular">Подробнее</a>
+            <a class="button button--primary product-card__button" href="product.html">Подробнее</a>
           </article>
 
-          <article class="product-card">
+          <article class="product-card product-card--featured">
+            <span class="product-card__badge">Новинка</span>
             <h3 class="product-card__title">Товар 3</h3>
 
             <img src="images/product-3.jpg" alt="Товар 3" class="product-card__image">
 
             <p class="product-card__description">Гидроаккамулятор</p>
             <p class="product-card__price">Цена: 2000 руб.</p>
-            <a class="button button--primary product-card__button" href="index.html#popular">Подробнее</a>
+            <a class="button button--primary product-card__button" href="product.html">Подробнее</a>
           </article>
 
         </div>
@@ -128,6 +131,8 @@
     <p>&copy; 2026 Учебный проект. Все права защищены.</p>
     <p>Дисциплина: фронтенд и бэкенд разработка</p>
   </footer>
+
+  <a class="to-top" href="#">Наверх</a>
 
 </body>
 </html>
