@@ -568,3 +568,191 @@ a.button--primary:active {
   border-radius: var(--radius-lg);
   background-color: var(--color-bg);
 }
+
+/* ===================================
+   11. FAQ (Частые вопросы)
+   =================================== */
+.faq {
+  max-width: var(--container-width);
+  margin: 0 auto var(--space-xl);
+}
+
+.faq__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.faq__item {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg);
+  overflow: hidden;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.faq__item:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 2px 8px rgba(0, 87, 184, 0.1);
+}
+
+/* Кнопка-вопрос */
+.faq__question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-md) var(--space-lg);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--color-text);
+  cursor: pointer;
+  background-color: var(--color-bg);
+  user-select: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.faq__question:hover {
+  background-color: var(--color-surface-accent);
+  color: var(--color-primary);
+}
+
+/* Прячем стандартный треугольник */
+.faq__question::-webkit-details-marker {
+  display: none;
+}
+.faq__question::marker {
+  display: none;
+}
+
+/* Красивая стрелочка */
+.faq__question::after {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid var(--color-primary);
+  border-bottom: 2px solid var(--color-primary);
+  transform: rotate(45deg);
+  transition: transform 0.3s ease;
+  margin-right: 4px;
+}
+
+/* Поворот стрелочки при открытии */
+.faq__item[open] .faq__question::after {
+  transform: rotate(-135deg);
+}
+
+.faq__item[open] .faq__question {
+  color: var(--color-primary);
+}
+
+/* Контейнер для плавного выезда текста */
+.faq__answer {
+  margin: 0;
+  padding: 0 var(--space-lg);
+  color: var(--color-muted);
+  line-height: 1.6;
+  
+  /* Анимация выезда */
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease, padding 0.3s ease;
+}
+
+/* Обертка нужна для grid-анимации */
+.faq__answer > * {
+  overflow: hidden;
+  margin: 0;
+}
+
+/* Открываем блок и анимируем */
+.faq__item[open] .faq__answer {
+  grid-template-rows: 1fr;
+  padding-bottom: var(--space-md);
+}
+
+/* Разделительная линия внутри открытого блока */
+.faq__item[open] .faq__answer > p {
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-md);
+}
+
+/* ===================================
+   12. Отзывы (на главной и в карточке)
+   =================================== */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.review-card {
+  padding: var(--space-lg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface); /* Серый фон */
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-color: var(--color-primary);
+}
+
+.review-card__author {
+  margin: 0;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.review-card__text {
+  margin: 0;
+  font-style: italic;
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+/* Отзывы на странице товара */
+.product-reviews {
+  max-width: var(--container-width);
+  margin: 0 auto var(--space-xl);
+}
+
+.product-reviews__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.product-reviews__item {
+  padding: var(--space-md) var(--space-lg);
+  border-left: 4px solid var(--color-primary);
+  background-color: var(--color-surface); /* Серый фон */
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.product-reviews__author {
+  margin: 0 0 var(--space-xs);
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.product-reviews__text {
+  margin: 0;
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+/* ===================================
+   13. Sticky-фильтр в каталоге
+   =================================== */
+.catalog-filters {
+  position: sticky;
+  top: 120px; /* Отступ, чтобы не наезжать на залипающую шапку */
+  align-self: start;
+}
