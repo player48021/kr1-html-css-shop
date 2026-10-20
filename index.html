@@ -60,7 +60,7 @@
           <h3 class="product-card__title">Товар 1</h3>
           <img src="images/product-1.jpg" alt="Товар 1" class="product-card__image">
           <p class="product-card__description">Зарядное устройство</p>
-          <p class="product-card__price">Цена: 1000 руб.</p>
+          <p class="product-card__price">Цена: 560 руб.</p>
           <button class="button button--primary product-card__button" type="button" data-product="Товар 1">
             Заказать
           </button>
@@ -71,7 +71,7 @@
           <h3 class="product-card__title">Товар 2</h3>
           <img src="images/product-2.jpg" alt="Товар 2" class="product-card__image">
           <p class="product-card__description">Точилка для ножей и ножниц</p>
-          <p class="product-card__price">Цена: 1500 руб.</p>
+          <p class="product-card__price">Цена: 350 руб.</p>
           <button class="button button--primary product-card__button" type="button" data-product="Товар 2">
             Заказать
           </button>
@@ -82,11 +82,82 @@
           <h3 class="product-card__title">Товар 3</h3>
           <img src="images/product-3.jpg" alt="Товар 3" class="product-card__image">
           <p class="product-card__description">Гидроаккамулятор</p>
-          <p class="product-card__price">Цена: 2000 руб.</p>
+          <p class="product-card__price">Цена: 7200 руб.</p>
           <button class="button button--primary product-card__button" type="button" data-product="Товар 3">
             Заказать
           </button>
         </article>
+
+        <!-- Новый товар 4 -->
+        <article class="product-card">
+          <h3 class="product-card__title">Товар 4</h3>
+          <img src="images/product-4.jpg" alt="Товар 4" class="product-card__image">
+          <p class="product-card__description">Кабель USB-C</p>
+          <p class="product-card__price">Цена: 1200 руб.</p>
+          <button class="button button--primary product-card__button" type="button" data-product="Товар 4">
+            Заказать
+          </button>
+        </article>
+
+        <!-- Новый товар 5 -->
+        <article class="product-card product-card--discount">
+          <span class="product-card__badge">Хит</span>
+          <h3 class="product-card__title">Товар 5</h3>
+          <img src="images/product-5.jpg" alt="Товар 5" class="product-card__image">
+          <p class="product-card__description">Беспроводная мышка</p>
+          <p class="product-card__price">Цена: 5400 руб.</p>
+          <button class="button button--primary product-card__button" type="button" data-product="Товар 5">
+            Заказать
+          </button>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Блок Отзывы на главной -->
+    <section class="section" id="reviews">
+      <h2>Отзывы покупателей</h2>
+      <div class="reviews-grid">
+        <article class="review-card">
+          <p class="review-card__author">Анна</p>
+          <p class="review-card__text">«Отличный магазин, быстрая доставка. Товар полностью соответствует описанию!»</p>
+        </article>
+        <article class="review-card">
+          <p class="review-card__author">Иван</p>
+          <p class="review-card__text">«Заказывал мышку, всё пришло быстро. Очень доволен качеством упаковки.»</p>
+        </article>
+        <article class="review-card">
+          <p class="review-card__author">Мария</p>
+          <p class="review-card__text">«Удобный сайт, легко найти нужный товар. Буду заказывать ещё.»</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Блок FAQ -->
+    <section class="faq" id="faq">
+      <h2>Частые вопросы</h2>
+      <div class="faq__list">
+        
+        <details class="faq__item">
+          <summary class="faq__question">Как оформить заказ?</summary>
+          <div class="faq__answer">
+            <p>Выберите товар в каталоге, нажмите «Заказать» или «Оформить заявку», заполните форму и отправьте её.</p>
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary class="faq__question">Сколько стоит доставка?</summary>
+          <div class="faq__answer">
+            <p>Доставка по городу бесплатная при заказе от 2000 рублей. В другие регионы — по тарифам почты.</p>
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary class="faq__question">Можно ли вернуть товар?</summary>
+          <div class="faq__answer">
+            <p>Да, в течение 14 дней после получения, если товар не был в использовании и сохранена упаковка.</p>
+          </div>
+        </details>
 
       </div>
     </section>
@@ -108,60 +179,27 @@
   </footer>
 
   <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
-
+    <!-- Модалка остается без изменений -->
     <h2 class="order-dialog__title" id="order-dialog-title">Оформление заявки</h2>
-
     <form class="order-form" id="order-form" action="#" method="post" novalidate>
-
       <input id="selected-product" name="selected-product" type="hidden">
-
       <div class="order-form__field">
         <label class="order-form__label" for="order-name">Имя</label>
-        <input
-          class="order-form__input"
-          id="order-name"
-          name="name"
-          type="text"
-          placeholder="Введите ваше имя"
-          minlength="2"
-          autocomplete="given-name"
-          required
-        >
+        <input class="order-form__input" id="order-name" name="name" type="text" placeholder="Введите ваше имя" minlength="2" autocomplete="given-name" required>
       </div>
-
       <div class="order-form__field">
         <label class="order-form__label" for="order-email">E-mail</label>
-        <input
-          class="order-form__input"
-          id="order-email"
-          name="email"
-          type="email"
-          placeholder="example@mail.ru"
-          autocomplete="email"
-          required
-        >
+        <input class="order-form__input" id="order-email" name="email" type="email" placeholder="example@mail.ru" autocomplete="email" required>
       </div>
-
       <div class="order-form__field">
         <label class="order-form__label" for="order-phone">Телефон</label>
-        <input
-          class="order-form__input"
-          id="order-phone"
-          name="phone"
-          type="tel"
-          inputmode="tel"
-          placeholder="+7 (900) 000-00-00"
-          pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$"
-          required
-        >
+        <input class="order-form__input" id="order-phone" name="phone" type="tel" inputmode="tel" placeholder="+7 (900) 000-00-00" pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$" required>
         <small>Формат: +7 (900) 000-00-00</small>
       </div>
-
       <div class="order-form__field">
         <label class="order-form__label" for="order-date">Дата связи</label>
         <input class="order-form__input" id="order-date" name="date" type="date">
       </div>
-
       <div class="order-form__field">
         <label class="order-form__label" for="order-topic">Тема заявки</label>
         <select class="order-form__select" id="order-topic" name="topic" required>
@@ -171,30 +209,20 @@
           <option value="delivery">Доставка</option>
         </select>
       </div>
-
       <div class="order-form__field">
         <label class="order-form__label" for="order-comment">Комментарий</label>
-        <textarea
-          class="order-form__textarea"
-          id="order-comment"
-          name="comment"
-          rows="4"
-          placeholder="Укажите дополнительную информацию"
-        ></textarea>
+        <textarea class="order-form__textarea" id="order-comment" name="comment" rows="4" placeholder="Укажите дополнительную информацию"></textarea>
       </div>
-
       <div class="order-form__field order-form__field--checkbox">
         <label class="order-form__label">
           <input id="order-agreement" name="agreement" type="checkbox" required>
           Я согласен на обработку данных
         </label>
       </div>
-
       <div class="order-form__actions">
         <button class="button button--secondary" type="button" id="close-order-dialog">Закрыть</button>
         <button class="button button--primary" type="submit">Отправить заявку</button>
       </div>
-
     </form>
   </dialog>
 
@@ -202,7 +230,7 @@
     Форма успешно отправлена!
   </p>
 
-  <a class="to-top" href="#">Наверх</a>
+  <a class="to-top" href="#" aria-label="Наверх">Наверх</a>
 
 </body>
 </html>
